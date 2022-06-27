@@ -1,0 +1,39 @@
+.card {
+    display: flex;
+    width: 900px;
+    align-items: center;
+    margin: auto;
+    padding: 10px;
+}
+
+.card--image {
+    object-fit: cover;
+    height: 250px;
+    width: 336px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.card--locationmap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.card--location {
+    padding-left: 5px;
+}
+
+.card--locationlink {
+    margin-left: 14px;
+    color: grey;
+    padding-bottom: 0%;
+}
+.card--locationlink > a {
+    color: grey;
+}
+
+.card--title {
+    padding-top: 0%;
+    margin-top: 0%;
+}
