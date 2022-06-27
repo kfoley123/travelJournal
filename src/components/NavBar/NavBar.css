@@ -1,0 +1,12 @@
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #f55a5a;
+    color: white;
+}
+
+.nav--image {
+    height: 55px;
+    padding: 10px;
+}
