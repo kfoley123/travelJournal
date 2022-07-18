@@ -1,4 +1,4 @@
-export default [
+export const data = [
     {
         title: "United States Botanical Garden",
         location: "Maryland, USA",
