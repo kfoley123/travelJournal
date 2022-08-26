@@ -1,6 +1,6 @@
 import React from "react";
 import plane from "../../images/takeoff.svg";
-import NavBarCSS from "./NavBar.css";
+import "./NavBar.css";
 
 export default function NavBar() {
     return (
