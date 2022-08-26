@@ -1,47 +1,103 @@
 import React from "react";
 import "./TravelForm.css";
 
-export default function TravelForm() {
+export default function TravelForm(props) {
+    function formatDate(date) {
+        const monthArray = [
+            "Jan",
+            "Feb",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "Aug",
+            "Sept",
+            "Oct",
+            "Nov",
+            "Dec",
+        ];
+        let newDate = date.split("-").reverse();
+        let newArray = newDate.map((item, index) => {
+            if (index === 1) {
+                return monthArray[item - 1] + ",";
+            }
+            return item;
+        });
+        return newArray.join(" ");
+    }
+
+    function handleChange(event) {
+        let { name, value } = event.target;
+        props.setTravelObj((prevFormData) => {
+            if (name === "date") {
+                value = formatDate(value);
+            }
+            return {
+                ...prevFormData,
+                [name]: value,
+            };
+        });
+    }
+
     return (
         <>
-            <form className="formContainer">
+            <form
+                className="formContainer"
+                onSubmit={(event) => {
+                    event.preventDefault();
+                    props.addNewTravelLog();
+                }}
+            >
                 <h1>New Entry: </h1>
 
-                <label for="photoURL">Photo URL: </label>
+                <label htmlFor="imageUrl">Photo URL: </label>
                 <input
                     type="text"
-                    id="photoURL "
-                    name="photoURL"
-                    class="input"
+                    id="imageUrl"
+                    name="imageUrl"
+                    className="input"
+                    onChange={handleChange}
                 />
-                <label for="location">Location (City, Country): </label>
+                <label htmlFor="title">Title: </label>
                 <input
                     type="text"
-                    id="location "
+                    id="title"
+                    name="title"
+                    className="input"
+                    onChange={handleChange}
+                />
+                <label htmlFor="location">Location (City, Country): </label>
+                <input
+                    type="text"
+                    id="location"
                     name="location"
-                    class="input"
+                    className="input"
+                    onChange={handleChange}
                 />
-                <label for="googleMapsURL">Google Maps URL: </label>
+                <label htmlFor="googleMapsUrl">Google Maps URL: </label>
                 <input
                     type="text"
-                    id="googleMapsURL"
-                    name="googleMapsURL"
-                    class="input"
+                    id="googleMapsUrl"
+                    name="googleMapsUrl"
+                    className="input"
+                    onChange={handleChange}
                 />
-                <label for="date">Date Visited: </label>
+                <label htmlFor="date">Date Visited: </label>
                 <input
                     type="date"
                     id="start"
-                    value=""
                     name="date"
-                    class="input"
+                    className="input"
+                    onChange={handleChange}
                 />
-                <label for="description">Description: </label>
+                <label htmlFor="description">Description: </label>
                 <input
                     type="text"
                     id="description"
                     name="description"
-                    class="input"
+                    className="input"
+                    onChange={handleChange}
                 />
                 <input type="submit" value="Submit" />
             </form>

@@ -3,8 +3,7 @@ export const data = [
         title: "United States Botanical Garden",
         location: "Maryland, USA",
         googleMapsUrl: "https://goo.gl/maps/3byMroRZhW3xE2xz9",
-        startDate: "22 Feb, 2017",
-        endDate: "24 Feb, 2017",
+        date: "22 Feb, 2017",
         description:
             "The U.S. Botanic Garden is a living plant museum. It is supervised by Congress through the Architect of the Capitol, who is responsible for maintaining the grounds of the US Capitol. ",
         imageUrl:
@@ -15,8 +14,7 @@ export const data = [
         title: "Times Square",
         location: "New York, USA",
         googleMapsUrl: "https://goo.gl/maps/w5vTuAwreq3peCyu6",
-        startDate: "18 Jan, 2019",
-        endDate: "21 Jan, 2019",
+        date: "18 Jan, 2019",
         description:
             "Times Square is a major commercial intersection, tourist destination, entertainment center, and neighborhood in Midtown Manhattan, New York.",
         imageUrl:
@@ -27,8 +25,7 @@ export const data = [
         title: "Santa Monica Pier",
         location: "California, USA",
         googleMapsUrl: "https://goo.gl/maps/KnJU8wcpWiV6G9aX7",
-        startDate: "31 March, 2022",
-        endDate: "31 March, 2022",
+        date: "31 March, 2022",
         description:
             "Jutting out into the Pacific Ocean at the intersection of Ocean and Colorado, the Santa Monica Pier symbolizes the heart of Santa Monica and is one of the most photographed locations in the world.",
         imageUrl:

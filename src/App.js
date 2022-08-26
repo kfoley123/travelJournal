@@ -6,7 +6,20 @@ import TravelForm from "./components/TravelForm/TravelForm";
 
 function App() {
     const [travelInfo, setTravelInfo] = useState(data);
-    const [travelObj, setTravelObj] = useState({});
+    const [travelObj, setTravelObj] = useState({
+        title: "",
+        location: "",
+        googleMapsUrl: "",
+        date: "",
+        description: "",
+        imageUrl: "",
+    });
+
+    function addNewTravelLog() {
+        setTravelInfo((prevTravelInfo) => {
+            return [...prevTravelInfo, travelObj];
+        });
+    }
 
     const cards = travelInfo.map((item, i) => {
         return (
@@ -15,8 +28,8 @@ function App() {
                 imageUrl={item.imageUrl}
                 location={item.location}
                 title={item.title}
-                googleMapsURL={item.googleMapsUrl}
-                startDate={item.startDate}
+                googleMapsUrl={item.googleMapsUrl}
+                date={item.date}
                 description={item.description}
             />
         );
@@ -26,7 +39,10 @@ function App() {
         <>
             <NavBar />
             {cards}
-            <TravelForm />
+            <TravelForm
+                setTravelObj={setTravelObj}
+                addNewTravelLog={addNewTravelLog}
+            />
         </>
     );
 }
