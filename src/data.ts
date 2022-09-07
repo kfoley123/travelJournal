@@ -1,4 +1,13 @@
-export const data = [
+export interface TripEntry {
+    title: string;
+    location: string;
+    googleMapsUrl: string;
+    date: string;
+    description: string;
+    imageUrl: string;
+}
+
+export const data: TripEntry[] = [
     {
         title: "United States Botanical Garden",
         location: "Maryland, USA",
