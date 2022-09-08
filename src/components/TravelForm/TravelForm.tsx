@@ -6,7 +6,7 @@ export interface TravelFormProps {
     setTravelInfo: Dispatch<SetStateAction<TripEntry[]>>;
 }
 
-export default function TravelForm(props: TravelFormProps) {
+export default function TravelForm(props: TravelFormProps): JSX.Element {
     const [travelObj, setTravelObj] = useState<TripEntry>({
         title: "",
         location: "",

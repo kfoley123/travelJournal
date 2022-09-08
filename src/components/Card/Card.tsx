@@ -7,7 +7,7 @@ export interface CardProps {
     tripEntry: TripEntry;
 }
 
-export default function Card(props: CardProps) {
+export default function Card(props: CardProps): JSX.Element {
     return (
         <div className="card">
             <div>
