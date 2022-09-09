@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useState, Dispatch, SetStateAction } from "react";
+import { TripEntry } from "../../data";
 import "./TravelForm.css";
 
-export default function TravelForm(props) {
-    function formatDate(date) {
+export interface TravelFormProps {
+    setTravelInfo: Dispatch<SetStateAction<TripEntry[]>>;
+}
+
+export default function TravelForm(props: TravelFormProps): JSX.Element {
+    const [travelObj, setTravelObj] = useState<TripEntry>({
+        title: "",
+        location: "",
+        googleMapsUrl: "",
+        date: "",
+        description: "",
+        imageUrl: "",
+    });
+
+    function addNewTravelLog(): void {
+        props.setTravelInfo((prevTravelInfo) => {
+            return [...prevTravelInfo, travelObj];
+        });
+    }
+
+    function formatDate(date: string): string {
         const monthArray = [
             "Jan",
             "Feb",
@@ -20,16 +40,16 @@ export default function TravelForm(props) {
         let newDate = date.split("-").reverse();
         let newArray = newDate.map((item, index) => {
             if (index === 1) {
-                return monthArray[item - 1] + ",";
+                return monthArray[parseInt(item) - 1] + ",";
             }
             return item;
         });
         return newArray.join(" ");
     }
 
-    function handleChange(event) {
+    function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
         let { name, value } = event.target;
-        props.setTravelObj((prevFormData) => {
+        setTravelObj((prevFormData: TripEntry) => {
             if (name === "date") {
                 value = formatDate(value);
             }
@@ -46,7 +66,7 @@ export default function TravelForm(props) {
                 className="formContainer"
                 onSubmit={(event) => {
                     event.preventDefault();
-                    props.addNewTravelLog();
+                    addNewTravelLog();
                 }}
             >
                 <h1>New Entry: </h1>

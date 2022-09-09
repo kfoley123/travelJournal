@@ -1,11 +1,21 @@
 import React from "react";
+import { TripEntry } from "../../data";
 import "./Card.css";
 
-export default function Card(props) {
+export interface CardProps {
+    key: number;
+    tripEntry: TripEntry;
+}
+
+export default function Card(props: CardProps): JSX.Element {
     return (
         <div className="card">
             <div>
-                <img className="card--image" src={props.imageUrl} alt=""></img>
+                <img
+                    className="card--image"
+                    src={props.tripEntry.imageUrl}
+                    alt=""
+                ></img>
             </div>
             <div>
                 <div className="card--locationmap">
@@ -23,18 +33,20 @@ export default function Card(props) {
                             fill="#F55A5A"
                         />
                     </svg>
-                    <h3 className="card--location">{props.location}</h3>
+                    <h3 className="card--location">
+                        {props.tripEntry.location}
+                    </h3>
                     <a
                         className="card--locationlink"
-                        href={props.googleMapsURL}
+                        href={props.tripEntry.googleMapsUrl}
                     >
                         View on Google Maps
                     </a>
                 </div>
 
-                <h1 className="card--title">{props.title}</h1>
-                <h3>{props.date}</h3>
-                <p>{props.description}</p>
+                <h1 className="card--title">{props.tripEntry.title}</h1>
+                <h3>{props.tripEntry.date}</h3>
+                <p>{props.tripEntry.description}</p>
             </div>
         </div>
     );
