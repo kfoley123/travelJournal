@@ -29,7 +29,6 @@ I designed this app to get better at using props in React and added TypeScript t
 ### TO DO
 
 -   add back-end so new journal entries aren't just stored locally
--
 
 ---
 
